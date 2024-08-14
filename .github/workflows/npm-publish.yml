@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm run build # Build komutunun adını buraya ekle
+      - run: npm run build
 
   publish-npm:
     needs: build
@@ -27,7 +27,8 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: cd packages/theme/dist && npm publish --access public
+      - run: npm publish
+        working-directory: packages/theme
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
 

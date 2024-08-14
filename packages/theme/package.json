@@ -7,8 +7,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "rimraf dist && tsup",
-    "prod": "npm run build && node prod.js"
+    "build": "rimraf dist && tsup"
   },
   "bugs": {
     "url": "https://github.com/ferdiunal/refine-admin/issues"
