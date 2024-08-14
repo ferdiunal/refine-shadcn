@@ -11,7 +11,7 @@ const { setTimeout } = require("node:timers/promises");
     await Promise.allSettled(
         files.map(async (file) => {
             try {
-                const srcPath = path.resolve(__dirname, "../../", file);
+                const srcPath = path.resolve(__dirname, "../", file);
                 const destPath = path.resolve(__dirname, "dist", file);
                 await fs.copyFile(srcPath, destPath);
             } catch (error) {
