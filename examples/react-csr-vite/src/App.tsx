@@ -1,5 +1,4 @@
 import { DefaultLayout, notificationProvider } from "@ferdiunal/refine-admin";
-import "@ferdiunal/refine-admin/dist/globals.css";
 import { I18nProvider, Refine } from "@refinedev/core";
 import routerProvider, {
     DocumentTitleHandler,
