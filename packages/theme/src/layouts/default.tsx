@@ -176,13 +176,21 @@ export const DefaultLayout = ({
                                 navbar?.rightSide && "justify-between",
                             )}
                         >
-                            <div className="flex items-center justify-start flex-1">
-                                {navbar?.leftSide}
-                            </div>
-                            <div className="flex items-center justify-end flex-1">
-                                {modeToggle && <ModeToggle {...modeToggle} />}
-                                {navbar?.rightSide}
-                            </div>
+                            {navbar?.leftSide && (
+                                <div className="flex items-center justify-start flex-1">
+                                    {navbar?.leftSide}
+                                </div>
+                            )}
+                            {navbar?.rightSide ? (
+                                <div className="flex items-center justify-end flex-1">
+                                    {modeToggle && (
+                                        <ModeToggle {...modeToggle} />
+                                    )}
+                                    {navbar?.rightSide}
+                                </div>
+                            ) : (
+                                modeToggle && <ModeToggle {...modeToggle} />
+                            )}
                         </header>
                         <main className="px-6 py-4">{children}</main>
                     </ResizablePanel>
