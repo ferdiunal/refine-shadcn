@@ -1,0 +1,22 @@
+branches:
+    - main
+debug: false
+ci: true
+plugins:
+    - '@semantic-release/commit-analyzer'
+    - '@semantic-release/release-notes-generator'
+    - '@semantic-release/changelog'
+    - - '@semantic-release/npm'
+      - npmPublish: true
+    - - '@semantic-release/git'
+      - assets:
+            - dist/**/*.{js,css,ts}
+            - package.json
+            - LICENSE
+            - README.md
+        message: |-
+            chore(release): ${nextRelease.version} [skip ci]
+            ${nextRelease.notes}
+    - - '@semantic-release/github'
+      - addReleases: top
+extends: 'semantic-release-monorepo'
