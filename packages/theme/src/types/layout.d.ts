@@ -27,4 +27,8 @@ export type LayoutProps = PropsWithChildren<{
         default: LogoType;
     };
     navCollapsedSize: number;
+    navbar?: {
+        leftSide?: ReactElement | ReactNode;
+        rightSide?: ReactElement | ReactNode;
+    };
 }>;

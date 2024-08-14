@@ -11,6 +11,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { useMemo, isValidElement, cloneElement, useState } from "react";
 import { Sidebar, ModeToggle } from "@/components";
 import { Link } from "@/components/link";
+import { useResource } from "@refinedev/core";
 
 export const DefaultLayout = ({
     children,
@@ -18,8 +19,13 @@ export const DefaultLayout = ({
     defaultCollapsed = false,
     navCollapsedSize,
     modeToggle,
+    navbar,
     logo,
 }: LayoutProps) => {
+    const { resources } = useResource();
+
+    const firstDashboard = resources?.[0];
+
     const xs = useMediaQuery("only screen and (max-width: 579.999px)");
     const sm = useMediaQuery(
         "only screen and (min-width: 640px) and (max-width: 767.999px)",
@@ -146,7 +152,15 @@ export const DefaultLayout = ({
                                 hasCollapsed ? "h-14" : "px-2",
                             )}
                         >
-                            <Link href="/">{Logo}</Link>
+                            <Link
+                                href={firstDashboard.list?.toString() ?? "/"}
+                                title={
+                                    firstDashboard.meta?.label ??
+                                    firstDashboard.name
+                                }
+                            >
+                                {Logo}
+                            </Link>
                         </div>
                         <Sidebar isCollapsed={hasCollapsed} />
                     </ResizablePanel>
@@ -156,8 +170,19 @@ export const DefaultLayout = ({
                         minSize={25}
                         className="xl:max-h-dvh h-full !overflow-y-auto overflow-x-hidden"
                     >
-                        <header className="sticky top-0 z-50 h-14 px-4 flex justify-end items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-                            <ModeToggle {...modeToggle} />
+                        <header
+                            className={cn(
+                                "sticky top-0 z-50 h-14 px-4 flex justify-end items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+                                navbar?.rightSide && "justify-between",
+                            )}
+                        >
+                            <div className="flex items-center justify-start flex-1">
+                                {navbar?.leftSide}
+                            </div>
+                            <div className="flex items-center justify-end flex-1">
+                                {modeToggle && <ModeToggle {...modeToggle} />}
+                                {navbar?.rightSide}
+                            </div>
                         </header>
                         <main className="px-6 py-4">{children}</main>
                     </ResizablePanel>
