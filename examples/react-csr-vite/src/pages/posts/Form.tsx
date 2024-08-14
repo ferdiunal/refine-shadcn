@@ -3,8 +3,8 @@ import { useSelect, RedirectAction } from "@refinedev/core";
 import { useForm } from "@refinedev/react-hook-form";
 import { Form, Field, Combobox, Select } from "@ferdiunal/refine-admin";
 import * as z from "zod";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "../../components/ui/textarea";
+import { Input } from "../../components/ui/input";
 
 export interface ICategory {
     id: number;

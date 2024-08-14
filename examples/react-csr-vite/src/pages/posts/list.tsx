@@ -1,8 +1,8 @@
 import { ListPage, Table, TableFilterProps } from "@ferdiunal/refine-admin";
 import { useUserFriendlyName } from "@refinedev/core";
 import { Edit, Eye, Trash2 } from "lucide-react";
-import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { Checkbox } from "@/components/ui/checkbox";
+import { DropdownMenuItem } from "../../components/ui/dropdown-menu";
+import { Checkbox } from "../../components/ui/checkbox";
 
 type Props = {};
 
