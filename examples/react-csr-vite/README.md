@@ -20,15 +20,9 @@ This project provides a fast and modern Vite-based template for creating [Refine
 **with Degit**:
 
 ```bash
-npx --yes degit ferdiunal/refine-admin-vite-template --force && cd refine-admin-vite-template && npm install && npm run dev
+npx --yes degit ferdiunal/refine-admin/examples/react-csr-vite refine-admin --force
 ```
-or
 
-**Clone the Template:**
-```bash
-git clone https://github.com/ferdiunal/refine-admin-vite-template.git
-cd refine-admin-vite-template
-```
 **Install Dependencies**:
 
 ```bash
