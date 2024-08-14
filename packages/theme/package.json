@@ -9,6 +9,12 @@
     "dev": "tsup --watch",
     "build": "rimraf dist && tsup"
   },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "bugs": {
     "url": "https://github.com/ferdiunal/refine-admin/issues"
   },
