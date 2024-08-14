@@ -1,3 +1,8 @@
-*
-!dist
-!package.json
+src
+node_modules
+.npmignore
+components.json
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+tsup.config.ts

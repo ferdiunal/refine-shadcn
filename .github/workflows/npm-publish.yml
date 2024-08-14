@@ -26,8 +26,7 @@ jobs:
 
       - name: Semantic Release
         run: npx semantic-release
-        with:
-          working-directory: packages/theme
+        working-directory: packages/theme
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
