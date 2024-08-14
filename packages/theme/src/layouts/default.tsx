@@ -35,8 +35,6 @@ export const DefaultLayout = ({
     );
     const lg = useMediaQuery("only screen and (min-width: 1024px)");
 
-    console.log([xs, sm, md, lg]);
-
     const [isCollapsed, setIsCollapsed] = useState<boolean>(
         xs ?? defaultCollapsed,
     );

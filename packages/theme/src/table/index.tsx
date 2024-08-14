@@ -84,7 +84,7 @@ type CustomColumnDef<
 export type TableProps<
     TData extends BaseRecord = BaseRecord,
     TError extends HttpError = HttpError,
-> = Omit<UseTableProps<TData, TError, TData>, "columns"> & {
+> = UseTableProps<TData, TError, TData> & {
     children?: ReactElement<ColumnProps<TData, TError>>[];
     showHeader?: boolean;
 };
@@ -93,28 +93,12 @@ export function Table<
     TQueryFnData extends BaseRecord = BaseRecord,
     TData extends BaseRecord = TQueryFnData,
     TError extends HttpError = HttpError,
->({ children, showHeader = true, ...props }: TableProps<TData, TError>) {
-    const [openConfirm, setOpenConfirm] = useState<boolean>(false);
-
-    useEffect(() => {
-        const abort = new AbortController();
-
-        window.addEventListener(
-            "deleteRow",
-            (e: Event) => {
-                const event = e as CustomEvent;
-                console.log(event.detail);
-            },
-            {
-                signal: abort.signal,
-            },
-        );
-
-        return () => {
-            abort.abort();
-        };
-    }, []);
-
+>({
+    children,
+    showHeader = true,
+    columns = [],
+    ...props
+}: TableProps<TData, TError>) {
     const mapColumn = useCallback(
         ({
             id,
@@ -145,7 +129,7 @@ export function Table<
         [],
     );
 
-    const columns = useMemo<ColumnDef<TData>[]>(() => {
+    columns = useMemo<ColumnDef<TData>[]>(() => {
         if (Array.isArray(children)) {
             return (children as ReactElement[])
                 .map((value: ReactElement) => value.props)
