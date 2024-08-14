@@ -1,5 +1,6 @@
 const { execSync } = require("node:child_process");
 const fs = require("node:fs/promises");
+const path = require("node:path");
 const { setTimeout } = require("node:timers/promises");
 
 (async () => {
@@ -10,9 +11,11 @@ const { setTimeout } = require("node:timers/promises");
     await Promise.allSettled(
         files.map(async (file) => {
             try {
-                fs.copyFile("../../" + file, `dist/${file}`);
+                const srcPath = path.resolve(__dirname, "../../", file);
+                const destPath = path.resolve(__dirname, "dist", file);
+                await fs.copyFile(srcPath, destPath);
             } catch (error) {
-                console.error(error);
+                console.error(`Error copying ${file}:`, error);
             }
         }),
     );
