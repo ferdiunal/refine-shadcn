@@ -5,6 +5,24 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "default": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js",
+        "types": {
+          "import": "./dist/index.d.mts",
+          "require": "./dist/index.d.ts"
+        }
+      }
+    }
+  },
   "scripts": {
     "dev": "tsup --watch",
     "build": "rimraf dist && tsup"
@@ -64,6 +82,7 @@
     "@react-hook/media-query": "^1.1.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^10.1.4",
     "@semantic-release/npm": "^12.0.1",

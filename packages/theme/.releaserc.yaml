@@ -17,5 +17,7 @@ plugins:
         message: |-
             chore(release): ${nextRelease.version} [skip ci]
             ${nextRelease.notes}
+    - - '@semantic-release/exec'
+      - prepareCmd: npx rimraf dist
     - - '@semantic-release/github'
       - addReleases: top
