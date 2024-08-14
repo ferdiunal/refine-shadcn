@@ -18,12 +18,16 @@ import { FC, forwardRef, PropsWithChildren } from "react";
 type CheckAllProps = React.ComponentPropsWithoutRef<typeof Checkbox> &
     PropsWithChildren<{
         table: UseTableReturnType<BaseRecord, HttpError>;
+        options?: {
+            label: string;
+            onClick: () => void;
+        }[];
     }>;
 
 export const CheckAll: FC<CheckAllProps> = forwardRef<
     React.ElementRef<typeof Checkbox>,
     CheckAllProps
->(({ table, children }, ref) => {
+>(({ table, children, options }, ref) => {
     return (
         <>
             <Checkbox
@@ -59,7 +63,16 @@ export const CheckAll: FC<CheckAllProps> = forwardRef<
                     <DropdownMenuContent align="start">
                         <DropdownMenuLabel>Bulk Actions</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        {children}
+                        {!children && options?.length === 0
+                            ? options.map((option, key) => (
+                                  <DropdownMenuItem
+                                      key={key}
+                                      onSelect={option.onClick}
+                                  >
+                                      {option.label}
+                                  </DropdownMenuItem>
+                              ))
+                            : children}
                     </DropdownMenuContent>
                 </DropdownMenu>
             )}
