@@ -1,6 +1,6 @@
 {
   "name": "@ferdiunal/refine-admin",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "description": "theme for refine.dev with shadcn-ui",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
