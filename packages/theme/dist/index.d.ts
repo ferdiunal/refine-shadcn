@@ -419,6 +419,10 @@ declare namespace Table {
     var Column: <TData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError>(props: ColumnProps<TData, TError>) => React__default.ReactElement<any, string | React__default.JSXElementConstructor<any>> | undefined;
     var CheckAll: React__default.FC<Omit<Omit<_radix_ui_react_checkbox.CheckboxProps & React__default.RefAttributes<HTMLButtonElement>, "ref"> & React__default.RefAttributes<HTMLButtonElement>, "ref"> & {
         table: UseTableReturnType<BaseRecord, HttpError>;
+        options?: {
+            label: string;
+            onClick: () => void;
+        }[];
     } & {
         children?: React__default.ReactNode | undefined;
     }>;
