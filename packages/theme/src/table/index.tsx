@@ -84,7 +84,7 @@ type CustomColumnDef<
 export type TableProps<
     TData extends BaseRecord = BaseRecord,
     TError extends HttpError = HttpError,
-> = UseTableProps<TData, TError, TData> & {
+> = Partial<UseTableProps<TData, TError, TData>> & {
     children?: ReactElement<ColumnProps<TData, TError>>[];
     showHeader?: boolean;
 };
