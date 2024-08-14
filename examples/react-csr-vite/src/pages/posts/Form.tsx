@@ -1,8 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSelect, RedirectAction } from "@refinedev/core";
 import { useForm } from "@refinedev/react-hook-form";
-import { Form, Field, Combobox, Select, UI } from "@ferdiunal/refine-admin";
+import { Form, Field, Combobox, Select } from "@ferdiunal/refine-admin";
 import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export interface ICategory {
     id: number;
@@ -67,7 +69,7 @@ export const PostForm = ({
         <>
             <Form {...form}>
                 <Field {...form} name="title" label="Title">
-                    <UI.Input placeholder="Title" />
+                    <Input placeholder="Title" />
                 </Field>
                 <div className="inline-flex flex-row items-center justify-start gap-x-4">
                     <Field {...form} name="category" label="Category">
@@ -96,7 +98,7 @@ export const PostForm = ({
                     </Field>
                 </div>
                 <Field {...form} name="content" label="Content">
-                    <UI.Textarea placeholder="Content" rows={10} />
+                    <Textarea placeholder="Content" rows={10} />
                 </Field>
             </Form>
         </>

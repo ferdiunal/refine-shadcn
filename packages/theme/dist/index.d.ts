@@ -410,7 +410,7 @@ type ColumnProps<TData extends BaseRecord = BaseRecord, TValue = unknown, TError
     children?: ReactElement;
     filter?: FC<TableFilterProps<TData>>;
 };
-type TableProps<TData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError> = UseTableProps<TData, TError, TData> & {
+type TableProps<TData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError> = Partial<UseTableProps<TData, TError, TData>> & {
     children?: ReactElement<ColumnProps<TData, TError>>[];
     showHeader?: boolean;
 };

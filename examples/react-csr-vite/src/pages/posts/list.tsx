@@ -1,6 +1,8 @@
-import { ListPage, Table, TableFilterProps, UI } from "@ferdiunal/refine-admin";
+import { ListPage, Table, TableFilterProps } from "@ferdiunal/refine-admin";
 import { useUserFriendlyName } from "@refinedev/core";
 import { Edit, Eye, Trash2 } from "lucide-react";
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {};
 
@@ -15,7 +17,7 @@ const PostList = (props: Props) => {
                     header={({ table }) => {
                         return (
                             <Table.CheckAll table={table}>
-                                <UI.DropdownMenuItem
+                                <DropdownMenuItem
                                     onSelect={() => alert("Delete Selected")}
                                 >
                                     Delete Selected (
@@ -27,12 +29,12 @@ const PostList = (props: Props) => {
                                             ? "plural"
                                             : "singular",
                                     )}
-                                </UI.DropdownMenuItem>
+                                </DropdownMenuItem>
                             </Table.CheckAll>
                         );
                     }}
                     cell={({ row }) => (
-                        <UI.Checkbox
+                        <Checkbox
                             className="translate-y-[2px]"
                             checked={row.getIsSelected()}
                             onCheckedChange={(value) =>
