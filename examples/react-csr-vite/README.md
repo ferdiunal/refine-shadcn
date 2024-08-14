@@ -20,10 +20,7 @@ This project provides a fast and modern Vite-based template for creating [Refine
 **with Degit**:
 
 ```bash
-npx --yes degit ferdiunal/refine-admin-vite-template \
-refine-admin-vite-template \
-npm ci \
-npm run dev
+npx --yes degit ferdiunal/refine-admin-vite-template && refine-admin-vite-template && npm ci && npm run dev
 ```
 or
 
