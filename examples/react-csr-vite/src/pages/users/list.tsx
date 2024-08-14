@@ -1,13 +1,14 @@
 import { ListPage, Table, TableFilterProps } from "@ferdiunal/refine-admin";
+import { AvatarImage } from "@radix-ui/react-avatar";
 import { BaseRecord, HttpError, useUserFriendlyName } from "@refinedev/core";
-import { Edit, Eye, Trash2 } from "lucide-react";
 import type { UseTableReturnType } from "@refinedev/react-table";
-import { DropdownMenuItem } from "../../components/ui/dropdown-menu";
+import { Edit, Eye, Trash2 } from "lucide-react";
+import { Avatar, AvatarFallback } from "../../components/ui/avatar";
 import { Checkbox } from "../../components/ui/checkbox";
 
 type Props = {};
 
-const PostList = (props: Props) => {
+const UserList = (props: Props) => {
     const friendly = useUserFriendlyName();
     const bulkDeleteAction = (
         table: UseTableReturnType<BaseRecord, HttpError>,
@@ -34,8 +35,8 @@ const PostList = (props: Props) => {
                     id={"select"}
                     header={({ table }) => (
                         <Table.CheckAll
-                            table={table}
                             options={[bulkDeleteAction(table)]}
+                            table={table}
                         />
                     )}
                     cell={({ row }) => (
@@ -58,45 +59,42 @@ const PostList = (props: Props) => {
                     enableHiding
                 />
                 <Table.Column
-                    header={"Title"}
-                    accessorKey="title"
-                    id="title"
-                    enableSorting
-                    enableHiding
-                    filter={(props: TableFilterProps) => (
-                        <Table.Filter.Search {...props} title="Search Title" />
-                    )}
+                    header={"Avatar"}
+                    id="avatar"
+                    accessorKey="avatar"
+                    cell={({ row }) =>
+                        row.original.avatar?.[0]?.url && (
+                            <Avatar>
+                                <AvatarImage
+                                    src={row.original.avatar[0].url}
+                                    alt={row.original.avatar[0].name}
+                                />
+                                <AvatarFallback>
+                                    {row.original.firstName[0]}
+                                    {row.original.lastName[0]}
+                                </AvatarFallback>
+                            </Avatar>
+                        )
+                    }
                 />
                 <Table.Column
-                    header={"Status"}
-                    accessorKey="status"
-                    id="status"
+                    header={"First Name"}
+                    accessorKey="firstName"
+                    id="firstName"
                     enableSorting
                     enableHiding
-                    filter={(props: TableFilterProps) => (
-                        <Table.Filter.Dropdown
-                            {...props}
-                            options={[
-                                {
-                                    label: "Published",
-                                    value: "published",
-                                },
-                                {
-                                    label: "Draft",
-                                    value: "draft",
-                                },
-                                {
-                                    label: "Rejected",
-                                    value: "rejected",
-                                },
-                            ]}
-                        />
-                    )}
                 />
                 <Table.Column
-                    header={"CreatedAt"}
-                    accessorKey="createdAt"
-                    id="createdAt"
+                    header={"Last Name"}
+                    accessorKey="lastName"
+                    id="lastName"
+                    enableSorting
+                    enableHiding
+                />
+                <Table.Column
+                    header={"Birthday"}
+                    accessorKey="birthday"
+                    id="birthday"
                     enableSorting
                     enableHiding
                     filter={(props: TableFilterProps) => (
@@ -111,20 +109,20 @@ const PostList = (props: Props) => {
                             <Table.ShowAction
                                 title="Detail"
                                 row={original}
-                                resource="posts"
+                                resource="users"
                                 icon={<Eye size={16} />}
                             />
                             <Table.EditAction
                                 title="Edit"
                                 row={original}
-                                resource="posts"
+                                resource="users"
                                 icon={<Edit size={16} />}
                             />
                             <Table.DeleteAction
                                 title="Delete"
                                 row={original}
                                 withForceDelete={true}
-                                resource="posts"
+                                resource="users"
                                 icon={<Trash2 size={16} />}
                             />
                         </Table.Actions>
@@ -135,4 +133,4 @@ const PostList = (props: Props) => {
     );
 };
 
-export default PostList;
+export default UserList;

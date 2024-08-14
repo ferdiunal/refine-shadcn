@@ -19,6 +19,10 @@ import PostEdit from "./pages/posts/Edit";
 import PostList from "./pages/posts/list";
 import PostShow from "./pages/posts/Show";
 import { resources } from "./resources";
+import UserCreate from "./pages/users/Create";
+import UserEdit from "./pages/users/Edit";
+import UserShow from "./pages/users/Show";
+import UserList from "./pages/users/list";
 
 const API_URL = "https://api.fake-rest.refine.dev";
 
@@ -81,6 +85,12 @@ function App() {
                             <Route path="create" element={<PostCreate />} />
                             <Route path="edit/:id" element={<PostEdit />} />
                             <Route path="show/:id" element={<PostShow />} />
+                        </Route>
+                        <Route path="/users">
+                            <Route index element={<UserList />} />
+                            <Route path="create" element={<UserCreate />} />
+                            <Route path="edit/:id" element={<UserEdit />} />
+                            <Route path="show/:id" element={<UserShow />} />
                         </Route>
                     </Route>
                 </Routes>
