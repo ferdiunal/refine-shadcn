@@ -28,12 +28,12 @@ export default defineConfig((options) => [
             ".svg": "dataurl",
         },
         watch: options.watch,
-    },
-    {
-        entry: [path.resolve("src/globals.css")],
-        outDir: path.resolve("dist"),
-        sourcemap: !options.watch ? "inline" : false,
-        minify: !options.watch,
-        watch: options.watch,
+        // },
+        // {
+        //     entry: [path.resolve("src/globals.css")],
+        //     outDir: path.resolve("dist"),
+        //     sourcemap: !options.watch ? "inline" : false,
+        //     minify: !options.watch,
+        //     watch: options.watch,
     },
 ]);

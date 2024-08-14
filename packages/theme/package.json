@@ -12,17 +12,8 @@
       "types": {
         "import": "./dist/index.d.mts",
         "require": "./dist/index.d.ts"
-      },
-      "default": {
-        "import": "./dist/index.mjs",
-        "require": "./dist/index.js",
-        "types": {
-          "import": "./dist/index.d.mts",
-          "require": "./dist/index.d.ts"
-        }
       }
-    },
-    "globals.css": "./dist/globals.css"
+    }
   },
   "scripts": {
     "dev": "tsup --watch",
