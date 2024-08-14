@@ -21,7 +21,8 @@
           "require": "./dist/index.d.ts"
         }
       }
-    }
+    },
+    "globals.css": "./dist/globals.css"
   },
   "scripts": {
     "dev": "tsup --watch",
