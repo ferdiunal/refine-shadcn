@@ -19,4 +19,3 @@ plugins:
             ${nextRelease.notes}
     - - '@semantic-release/github'
       - addReleases: top
-extends: 'semantic-release-monorepo'
