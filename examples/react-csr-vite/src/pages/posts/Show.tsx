@@ -1,5 +1,5 @@
 import { IResourceComponentsProps, useOne, useShow } from "@refinedev/core";
-import { ShowPage } from "@ferdiunal/refinedev-shadcn-ui";
+import { ShowPage } from "@ferdiunal/refine-admin";
 import { ICategory, IPost } from "./Form";
 const PostShow: React.FC<IResourceComponentsProps> = () => {
     const {

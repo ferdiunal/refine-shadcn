@@ -1,5 +1,8 @@
 {
   "private": true,
+  "scripts": {
+    "build": "npm run prod -w @ferdiunal/refine-admin"
+  },
   "workspaces": [
     "examples/*",
     "packages/*"

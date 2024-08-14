@@ -1,13 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSelect, RedirectAction } from "@refinedev/core";
 import { useForm } from "@refinedev/react-hook-form";
-import {
-    Form,
-    Field,
-    Combobox,
-    Select,
-    UI,
-} from "@ferdiunal/refinedev-shadcn-ui";
+import { Form, Field, Combobox, Select, UI } from "@ferdiunal/refine-admin";
 import * as z from "zod";
 
 export interface ICategory {

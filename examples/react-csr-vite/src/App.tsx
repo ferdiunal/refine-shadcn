@@ -1,13 +1,10 @@
-import {
-  DefaultLayout,
-  notificationProvider,
-} from "@ferdiunal/refinedev-shadcn-ui";
-import "@ferdiunal/refinedev-shadcn-ui/dist/globals.css";
+import { DefaultLayout, notificationProvider } from "@ferdiunal/refine-admin";
+import "@ferdiunal/refine-admin/dist/globals.css";
 import { I18nProvider, Refine } from "@refinedev/core";
 import routerProvider, {
-  DocumentTitleHandler,
-  NavigateToResource,
-  UnsavedChangesNotifier,
+    DocumentTitleHandler,
+    NavigateToResource,
+    UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
 import dataProvider from "@refinedev/simple-rest";
 import Cookie from "js-cookie";
@@ -25,59 +22,72 @@ import { resources } from "./resources";
 const API_URL = "https://api.fake-rest.refine.dev";
 
 function App() {
-  const layout = Cookie.get("react-resizable-panels:layout");
-  const collapsed = Cookie.get("react-resizable-panels:collapsed");
-  const defaultLayout = layout ? JSON.parse(layout) : undefined;
-  const defaultCollapsed = collapsed ? JSON.parse(collapsed) : false;
-  const { t, i18n } = useTranslation();
+    const layout = Cookie.get("react-resizable-panels:layout");
+    const collapsed = Cookie.get("react-resizable-panels:collapsed");
+    const defaultLayout = layout ? JSON.parse(layout) : undefined;
+    const defaultCollapsed = collapsed ? JSON.parse(collapsed) : false;
+    const { t, i18n } = useTranslation();
 
-  const i18nProvider: I18nProvider = {
-    translate: (key: string, params: object, defaultMessage?: string): string =>
-      t(key as any, params as any).toString() ?? defaultMessage ?? key ?? "",
-    changeLocale: (lang: string) => i18n.changeLanguage(lang),
-    getLocale: () => i18n.language,
-  };
+    const i18nProvider: I18nProvider = {
+        translate: (
+            key: string,
+            params: object,
+            defaultMessage?: string,
+        ): string =>
+            t(key as any, params as any).toString() ??
+            defaultMessage ??
+            key ??
+            "",
+        changeLocale: (lang: string) => i18n.changeLanguage(lang),
+        getLocale: () => i18n.language,
+    };
 
-  return (
-    <BrowserRouter>
-      <Refine
-        routerProvider={routerProvider}
-        dataProvider={dataProvider(API_URL)}
-        resources={resources}
-        i18nProvider={i18nProvider}
-        notificationProvider={notificationProvider}
-      >
-        <Routes>
-          <Route
-            element={
-              <DefaultLayout
-                defaultLayout={defaultLayout}
-                defaultCollapsed={defaultCollapsed}
-                navCollapsedSize={4}
-                logo={{
-                  default: <img src={Logo} alt="Refine" />,
-                  collapsed: <img src={LogoMini} alt="Refine" />,
-                }}
-              >
-                <Outlet />
-              </DefaultLayout>
-            }
-          >
-            <Route index element={<NavigateToResource />} />
-            <Route path="/dashboard" index element={<Dashboard />} />
-            <Route path="/posts">
-              <Route index element={<PostList />} />
-              <Route path="create" element={<PostCreate />} />
-              <Route path="edit/:id" element={<PostEdit />} />
-              <Route path="show/:id" element={<PostShow />} />
-            </Route>
-          </Route>
-        </Routes>
-        <UnsavedChangesNotifier />
-        <DocumentTitleHandler />
-      </Refine>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Refine
+                routerProvider={routerProvider}
+                dataProvider={dataProvider(API_URL)}
+                resources={resources}
+                i18nProvider={i18nProvider}
+                notificationProvider={notificationProvider}
+            >
+                <Routes>
+                    <Route
+                        element={
+                            <DefaultLayout
+                                defaultLayout={defaultLayout}
+                                defaultCollapsed={defaultCollapsed}
+                                navCollapsedSize={4}
+                                logo={{
+                                    default: <img src={Logo} alt="Refine" />,
+                                    collapsed: (
+                                        <img src={LogoMini} alt="Refine" />
+                                    ),
+                                }}
+                            >
+                                <Outlet />
+                            </DefaultLayout>
+                        }
+                    >
+                        <Route index element={<NavigateToResource />} />
+                        <Route
+                            path="/dashboard"
+                            index
+                            element={<Dashboard />}
+                        />
+                        <Route path="/posts">
+                            <Route index element={<PostList />} />
+                            <Route path="create" element={<PostCreate />} />
+                            <Route path="edit/:id" element={<PostEdit />} />
+                            <Route path="show/:id" element={<PostShow />} />
+                        </Route>
+                    </Route>
+                </Routes>
+                <UnsavedChangesNotifier />
+                <DocumentTitleHandler />
+            </Refine>
+        </BrowserRouter>
+    );
 }
 
 export default App;

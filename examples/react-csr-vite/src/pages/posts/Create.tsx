@@ -1,4 +1,4 @@
-import { CreatePage } from "@ferdiunal/refinedev-shadcn-ui";
+import { CreatePage } from "@ferdiunal/refine-admin";
 import { PostForm } from "./Form";
 type Props = {};
 
