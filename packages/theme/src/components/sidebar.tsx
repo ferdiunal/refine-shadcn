@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
 import { useMenu, useResourceParams } from "@refinedev/core";
+import { useLocation } from "react-use";
 import React from "react";
 import { Link } from "./link";
 
@@ -14,7 +15,9 @@ type NavProps = {
 export const Sidebar = ({ isCollapsed }: NavProps) => {
     const { menuItems } = useMenu();
     const resourceParams = useResourceParams();
-    const pathname = window.location.pathname;
+    const { pathname } = useLocation();
+
+    const currentPathname = String(pathname);
 
     const GetIcon = (item: (typeof menuItems)[0]) => {
         const icon = item.meta?.icon;
@@ -46,11 +49,11 @@ export const Sidebar = ({ isCollapsed }: NavProps) => {
                                 ?.replace(":id", resourceParams.id as string),
                         ].filter(Boolean) as string[];
                         const isActive =
-                            paths.includes(pathname) ||
+                            paths.includes(currentPathname) ||
                             paths.some((path) => {
                                 return (
-                                    path?.startsWith(pathname) ||
-                                    pathname.startsWith(path)
+                                    path?.startsWith(currentPathname) ||
+                                    currentPathname.startsWith(path)
                                 );
                             });
                         return isCollapsed ? (
