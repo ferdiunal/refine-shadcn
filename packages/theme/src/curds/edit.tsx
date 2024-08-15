@@ -2,6 +2,8 @@ import { DeleteButton, ShowButton } from "@/buttons";
 import { Breadcrumbs, PageHeader } from "@/components";
 import { EditProps } from "@/types";
 import {
+    useNavigation,
+    useRedirectionAfterSubmission,
     useRefineContext,
     useResource,
     useTranslate,
@@ -19,6 +21,7 @@ export const EditPage: FC<EditProps> = ({
     const translate = useTranslate();
     const { options: { breadcrumb: globalBreadcrumb } = {} } =
         useRefineContext();
+    const { list } = useNavigation();
 
     const getUserFriendlyName = useUserFriendlyName();
 
@@ -37,10 +40,7 @@ export const EditPage: FC<EditProps> = ({
                     translate(
                         `${identifier}.titles.List`,
                         `Edit ${getUserFriendlyName(
-                            _resource?.meta?.label ??
-                                _resource?.options?.label ??
-                                _resource?.label ??
-                                identifier,
+                            _resource?.meta?.label ?? identifier,
                             "plural",
                         )}`,
                     )
@@ -53,7 +53,12 @@ export const EditPage: FC<EditProps> = ({
                     extra ?? (
                         <div className="inline-flex flex-row items-center gap-x-2">
                             <ShowButton resource={resource} />
-                            <DeleteButton resource={resource} />
+                            <DeleteButton
+                                resource={resource}
+                                onSuccess={() => {
+                                    list(_resource?.name as string);
+                                }}
+                            />
                         </div>
                     )
                 }

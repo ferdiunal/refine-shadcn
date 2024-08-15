@@ -43,39 +43,42 @@ export const CheckAll: FC<CheckAllProps> = forwardRef<
                 className="translate-y-[2px]"
                 aria-label="Select all"
             />
-            {children && (
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button
-                            disabled={
-                                !(
-                                    table.getIsSomeRowsSelected() ||
-                                    table.getIsAllPageRowsSelected()
-                                )
-                            }
-                            size={"icon"}
-                            variant={"ghost"}
-                            className="px-0 w-5"
-                        >
-                            <DotsVerticalIcon className="w-4 h-4" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start">
-                        <DropdownMenuLabel>Bulk Actions</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        {!children && options?.length === 0
-                            ? options.map((option, key) => (
-                                  <DropdownMenuItem
-                                      key={key}
-                                      onSelect={option.onClick}
-                                  >
-                                      {option.label}
-                                  </DropdownMenuItem>
-                              ))
-                            : children}
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            )}
+            {children ||
+                (Array.isArray(options) && options.length && (
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button
+                                disabled={
+                                    !(
+                                        table.getIsSomeRowsSelected() ||
+                                        table.getIsAllPageRowsSelected()
+                                    )
+                                }
+                                size={"icon"}
+                                variant={"ghost"}
+                                className="px-0 w-5"
+                            >
+                                <DotsVerticalIcon className="w-4 h-4" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="start">
+                            <DropdownMenuLabel>Bulk Actions</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            {!children &&
+                            Array.isArray(options) &&
+                            options?.length > 0
+                                ? options.map((option, key) => (
+                                      <DropdownMenuItem
+                                          key={key}
+                                          onSelect={option.onClick}
+                                      >
+                                          {option.label}
+                                      </DropdownMenuItem>
+                                  ))
+                                : children}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                ))}
         </>
     );
 });

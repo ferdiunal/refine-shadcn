@@ -37,10 +37,7 @@ export const CreatePage: React.FC<CreateProps> = ({
                     translate(
                         `${identifier}.titles.List`,
                         `Create ${getUserFriendlyName(
-                            resource?.meta?.label ??
-                                resource?.options?.label ??
-                                resource?.label ??
-                                identifier,
+                            resource?.meta?.label ?? identifier,
                             "singular",
                         )}`,
                     )

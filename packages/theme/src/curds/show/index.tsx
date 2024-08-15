@@ -2,6 +2,7 @@ import { DeleteButton, EditButton } from "@/buttons";
 import { Breadcrumbs, PageHeader } from "@/components";
 import { ShowProps } from "@/types";
 import {
+    useNavigation,
     useRefineContext,
     useResource,
     useTranslate,
@@ -29,6 +30,8 @@ export const ShowPage: FC<ShowProps> & {
 
     const { resource, identifier } = useResource(resourceFromProps);
 
+    const { list } = useNavigation();
+
     const breadcrumb =
         typeof breadcrumbFromProps === "undefined"
             ? globalBreadcrumb
@@ -42,10 +45,7 @@ export const ShowPage: FC<ShowProps> & {
                     translate(
                         `${identifier}.titles.List`,
                         `Show ${getUserFriendlyName(
-                            resource?.meta?.label ??
-                                resource?.options?.label ??
-                                resource?.label ??
-                                identifier,
+                            resource?.meta?.label ?? identifier,
                             "singular",
                         )}`,
                     )
@@ -61,7 +61,12 @@ export const ShowPage: FC<ShowProps> & {
                                 <EditButton resource={resourceFromProps} />
                             )}
                             {isDelete && (
-                                <DeleteButton resource={resourceFromProps} />
+                                <DeleteButton
+                                    resource={resourceFromProps}
+                                    onSuccess={() => {
+                                        list(resource?.name as string);
+                                    }}
+                                />
                             )}
                         </div>
                     )

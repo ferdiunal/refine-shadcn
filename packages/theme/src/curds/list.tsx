@@ -43,10 +43,7 @@ export const ListPage: FC<ListProps> = ({
                     translate(
                         `${identifier}.titles.List`,
                         `List ${getUserFriendlyName(
-                            resource?.meta?.label ??
-                                resource?.options?.label ??
-                                resource?.label ??
-                                identifier,
+                            resource?.meta?.label ?? identifier,
                             "plural",
                         )}`,
                     )
