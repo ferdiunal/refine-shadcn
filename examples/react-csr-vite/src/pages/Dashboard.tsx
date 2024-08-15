@@ -8,7 +8,7 @@ type Props = {};
 const Dashboard = (props: Props) => {
     return (
         <div className="container space-y-4">
-            <div className="grid grid-cols-3 gap-x-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-y-0 gap-x-4">
                 <div className="col-span-1">
                     <Chart1 />
                 </div>

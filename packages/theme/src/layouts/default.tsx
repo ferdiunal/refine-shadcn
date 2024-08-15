@@ -12,14 +12,18 @@ import { useMemo, isValidElement, cloneElement, useState } from "react";
 import { Sidebar, ModeToggle } from "@/components";
 import { Link } from "@/components/link";
 import { useResource } from "@refinedev/core";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 export const DefaultLayout = ({
     children,
     defaultLayout,
     defaultCollapsed = false,
     navCollapsedSize,
-    modeToggle,
+    darkMode,
+    themeStorageKey,
+    defaultTheme,
     navbar,
+    footer,
     logo,
 }: LayoutProps) => {
     const { resources } = useResource();
@@ -109,92 +113,103 @@ export const DefaultLayout = ({
 
     return (
         <>
-            <TooltipProvider delayDuration={0}>
-                <ResizablePanelGroup
-                    direction="horizontal"
-                    onLayout={(sizes: number[]) => {
-                        document.cookie = `react-resizable-panels:layout=${JSON.stringify(
-                            sizes,
-                        )}`;
-                    }}
-                    className="h-full items-stretch"
-                >
-                    <ResizablePanel
-                        defaultSize={layout[0]}
-                        collapsedSize={navCollapsedSize}
-                        collapsible={true}
-                        minSize={SidebarSizes.minSize}
-                        maxSize={SidebarSizes.maxSize}
-                        onExpand={() => {
-                            const collapsed = xs;
-                            setIsCollapsed(collapsed);
-                            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
-                                collapsed,
+            <ThemeProvider
+                defaultTheme={defaultTheme}
+                storageKey={themeStorageKey}
+            >
+                <TooltipProvider delayDuration={0}>
+                    <ResizablePanelGroup
+                        direction="horizontal"
+                        onLayout={(sizes: number[]) => {
+                            document.cookie = `react-resizable-panels:layout=${JSON.stringify(
+                                sizes,
                             )}`;
                         }}
-                        onCollapse={() => {
-                            const collapsed = true;
-                            setIsCollapsed(collapsed);
-                            document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
-                                collapsed,
-                            )}`;
-                        }}
-                        className={cn(
-                            hasCollapsed &&
-                                "min-w-[50px] transition-all duration-300 ease-in-out",
-                        )}
+                        className="h-full items-stretch"
                     >
-                        <div
+                        <ResizablePanel
+                            defaultSize={layout[0]}
+                            collapsedSize={navCollapsedSize}
+                            collapsible={true}
+                            minSize={SidebarSizes.minSize}
+                            maxSize={SidebarSizes.maxSize}
+                            onExpand={() => {
+                                const collapsed = xs;
+                                setIsCollapsed(collapsed);
+                                document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
+                                    collapsed,
+                                )}`;
+                            }}
+                            onCollapse={() => {
+                                const collapsed = true;
+                                setIsCollapsed(collapsed);
+                                document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
+                                    collapsed,
+                                )}`;
+                            }}
                             className={cn(
-                                "flex h-14 items-center border-b border-border/40 justify-center",
-                                hasCollapsed ? "h-14" : "px-2",
+                                hasCollapsed &&
+                                    "min-w-[50px] transition-all duration-300 ease-in-out",
                             )}
                         >
-                            <Link
-                                href={firstDashboard.list?.toString() ?? "/"}
-                                title={
-                                    firstDashboard.meta?.label ??
-                                    firstDashboard.name
-                                }
+                            <div
+                                className={cn(
+                                    "flex h-14 items-center border-b border-border/40 justify-center",
+                                    hasCollapsed ? "h-14" : "px-2",
+                                )}
                             >
-                                {Logo}
-                            </Link>
-                        </div>
-                        <Sidebar isCollapsed={hasCollapsed} />
-                    </ResizablePanel>
-                    <ResizableHandle withHandle className="bg-border/40" />
-                    <ResizablePanel
-                        defaultSize={layout[1]}
-                        minSize={25}
-                        className="xl:max-h-dvh h-full !overflow-y-auto overflow-x-hidden"
-                    >
-                        <header
-                            className={cn(
-                                "sticky top-0 z-50 h-14 px-4 flex justify-end items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
-                                navbar?.rightSide && "justify-between",
-                            )}
+                                <Link
+                                    href={
+                                        firstDashboard.list?.toString() ?? "/"
+                                    }
+                                    className="inline-flex items-center justify-center"
+                                    title={
+                                        firstDashboard.meta?.label ??
+                                        firstDashboard.name
+                                    }
+                                >
+                                    {Logo}
+                                </Link>
+                            </div>
+                            <Sidebar isCollapsed={hasCollapsed} />
+                        </ResizablePanel>
+                        <ResizableHandle withHandle className="bg-border/40" />
+                        <ResizablePanel
+                            defaultSize={layout[1]}
+                            minSize={25}
+                            className="xl:max-h-dvh h-full !overflow-y-auto flex flex-col overflow-x-hidden"
                         >
-                            {navbar?.leftSide && (
-                                <div className="flex items-center justify-start flex-1">
-                                    {navbar?.leftSide}
-                                </div>
+                            <header
+                                className={cn(
+                                    "sticky top-0 z-50 h-14 px-4 flex justify-end items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+                                    navbar?.rightSide && "justify-between",
+                                )}
+                            >
+                                {navbar?.leftSide && (
+                                    <div className="flex items-center justify-start flex-1">
+                                        {navbar?.leftSide}
+                                    </div>
+                                )}
+                                {navbar?.rightSide ? (
+                                    <div className="flex items-center justify-end flex-1">
+                                        {darkMode && <ModeToggle />}
+                                        {navbar?.rightSide}
+                                    </div>
+                                ) : (
+                                    darkMode && <ModeToggle />
+                                )}
+                            </header>
+                            <main className="grow px-6 py-4">{children}</main>
+                            {footer && (
+                                <footer className="px-6 py-4 border-t border-border/40 sticky bottom-0 bg-background text-inbg-inherit">
+                                    {footer}
+                                </footer>
                             )}
-                            {navbar?.rightSide ? (
-                                <div className="flex items-center justify-end flex-1">
-                                    {modeToggle && (
-                                        <ModeToggle {...modeToggle} />
-                                    )}
-                                    {navbar?.rightSide}
-                                </div>
-                            ) : (
-                                modeToggle && <ModeToggle {...modeToggle} />
-                            )}
-                        </header>
-                        <main className="px-6 py-4">{children}</main>
-                    </ResizablePanel>
-                </ResizablePanelGroup>
-            </TooltipProvider>
-            <Toaster />
+                        </ResizablePanel>
+                    </ResizablePanelGroup>
+                </TooltipProvider>
+                <Toaster />
+            </ThemeProvider>
         </>
     );
 };

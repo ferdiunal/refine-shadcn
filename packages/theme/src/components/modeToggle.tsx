@@ -1,6 +1,6 @@
 "use client";
 
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { useTheme } from "@/providers/theme-provider";
 import { Button } from "@/ui/button";
 import {
     DropdownMenu,
@@ -8,13 +8,10 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/ui/dropdown-menu";
-import { FC } from "react";
-import { ModeToggleProps } from "@/types";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
-export const ModeToggle: FC<ModeToggleProps> = ({
-    align = "end",
-    setTheme,
-}) => {
+export const ModeToggle = () => {
+    const { setTheme } = useTheme();
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -24,14 +21,14 @@ export const ModeToggle: FC<ModeToggleProps> = ({
                     <span className="sr-only">Toggle theme</span>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align={align}>
-                <DropdownMenuItem onClick={() => setTheme?.("light")}>
+            <DropdownMenuContent align={"end"}>
+                <DropdownMenuItem onClick={() => setTheme("light")}>
                     Light
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme?.("dark")}>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
                     Dark
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme?.("system")}>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
                     System
                 </DropdownMenuItem>
             </DropdownMenuContent>

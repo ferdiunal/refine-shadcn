@@ -5,7 +5,7 @@ import {
     ReactElement,
     ReactNode,
 } from "react";
-import { ModeToggleProps } from "./modeToggle";
+import { Theme } from "./darkMode";
 
 export type LayoutResource = {
     title: string;
@@ -21,7 +21,10 @@ export type LogoType =
 export type LayoutProps = PropsWithChildren<{
     defaultLayout: number[] | undefined;
     defaultCollapsed?: boolean;
-    modeToggle?: ModeToggleProps;
+    darkMode?: boolean;
+    defaultTheme: Theme;
+    themeStorageKey: string;
+    footer?: ReactElement | ReactNode;
     logo?: {
         collapsed?: LogoType;
         default: LogoType;
