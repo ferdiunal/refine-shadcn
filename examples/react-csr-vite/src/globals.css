@@ -68,6 +68,6 @@
         height: 100dvh;
     }
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground font-inter;
     }
 }
