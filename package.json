@@ -4,7 +4,6 @@
     "build": "npm run build -w @ferdiunal/refine-admin"
   },
   "workspaces": [
-    "examples/*",
     "packages/*"
   ]
 }
