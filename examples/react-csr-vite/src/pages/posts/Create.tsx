@@ -1,8 +1,7 @@
 import { CreatePage } from "@ferdiunal/refine-admin";
 import { PostForm } from "./Form";
-type Props = {};
 
-const PostCreate = (props: Props) => {
+const PostCreate = () => {
     return (
         <CreatePage>
             <PostForm redirect="edit" />

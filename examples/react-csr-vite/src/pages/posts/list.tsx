@@ -2,12 +2,9 @@ import { ListPage, Table, TableFilterProps } from "@ferdiunal/refine-admin";
 import { BaseRecord, HttpError, useUserFriendlyName } from "@refinedev/core";
 import { Edit, Eye, Trash2 } from "lucide-react";
 import type { UseTableReturnType } from "@refinedev/react-table";
-import { DropdownMenuItem } from "../../components/ui/dropdown-menu";
 import { Checkbox } from "../../components/ui/checkbox";
 
-type Props = {};
-
-const PostList = (props: Props) => {
+const PostList = () => {
     const friendly = useUserFriendlyName();
     const bulkDeleteAction = (
         table: UseTableReturnType<BaseRecord, HttpError>,

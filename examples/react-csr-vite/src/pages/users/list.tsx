@@ -6,9 +6,7 @@ import { Edit, Eye, Trash2 } from "lucide-react";
 import { Avatar, AvatarFallback } from "../../components/ui/avatar";
 import { Checkbox } from "../../components/ui/checkbox";
 
-type Props = {};
-
-const UserList = (props: Props) => {
+const UserList = () => {
     const friendly = useUserFriendlyName();
     const bulkDeleteAction = (
         table: UseTableReturnType<BaseRecord, HttpError>,

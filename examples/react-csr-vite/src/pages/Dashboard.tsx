@@ -3,9 +3,7 @@ import { Chart2 } from "./components/chart2";
 import { Chart3 } from "./components/chart3";
 import { Chart4 } from "./components/chart4";
 
-type Props = {};
-
-const Dashboard = (props: Props) => {
+const Dashboard = () => {
     return (
         <div className="container space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-y-0 gap-x-4">

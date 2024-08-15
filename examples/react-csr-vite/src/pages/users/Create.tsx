@@ -1,8 +1,7 @@
 import { CreatePage } from "@ferdiunal/refine-admin";
 import { UserForm } from "./Form";
-type Props = {};
 
-const UserCreate = (props: Props) => {
+const UserCreate = () => {
     return (
         <CreatePage>
             <UserForm redirect="edit" />
