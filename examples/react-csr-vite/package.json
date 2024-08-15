@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ferdiunal/refine-admin": "^1.2.0",
+    "@ferdiunal/refine-admin": "^1.2.1",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-checkbox": "^1.1.1",
@@ -25,7 +25,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "i18n-react": "^0.7.0",
-    "i18next": "^23.12.3",
+    "i18next": "^23.12.7",
     "i18next-browser-languagedetector": "^8.0.0",
     "i18next-xhr-backend": "^3.2.2",
     "js-cookie": "^3.0.5",
@@ -54,6 +54,6 @@
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0",
-    "vite": "^5.4.0"
+    "vite": "^5.4.1"
   }
 }

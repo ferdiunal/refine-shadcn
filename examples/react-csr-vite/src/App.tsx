@@ -62,9 +62,10 @@ function App() {
                             <DefaultLayout
                                 defaultLayout={defaultLayout}
                                 defaultCollapsed={defaultCollapsed}
-                                darkMode
+                                attribute="class"
                                 defaultTheme="system"
-                                themeStorageKey="theme"
+                                enableSystem
+                                disableTransitionOnChange
                                 footer={
                                     <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-y-2 sm:gap-y-0 gap-x-4">
                                         <div className="flex-1 flex items-center justify-start gap-x-4 text-sm">
