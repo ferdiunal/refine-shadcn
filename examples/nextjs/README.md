@@ -2,6 +2,8 @@
 
 This project provides a fast and modern Next.js-based template for creating [Refine admin](https://github.com/ferdiunal/refine-admin) panels. It is configured to help you build comprehensive admin dashboards using the Refine library.
 
+# 💪 [Preview](https://refine-admin-next.vercel.app)
+
 ## Features
 
 - **Fast Development:** Accelerate your development process with Next.js's fast build and hot-reload capabilities.
