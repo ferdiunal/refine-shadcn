@@ -185,10 +185,7 @@ type ShowProps = RefineCrudShowProps<
         isDelete?: boolean;
     }>;
 
-type ModeToggleProps = {
-    align?: "start" | "center" | "end";
-    setTheme?: (theme: "light" | "dark" | "system") => void;
-};
+type Theme = "dark" | "light" | "system";
 
 type LogoType =
     | ReactElement<React.ComponentProps<"img">>
@@ -196,7 +193,10 @@ type LogoType =
 type LayoutProps = PropsWithChildren<{
     defaultLayout: number[] | undefined;
     defaultCollapsed?: boolean;
-    modeToggle?: ModeToggleProps;
+    darkMode?: boolean;
+    defaultTheme: Theme;
+    themeStorageKey: string;
+    footer?: ReactElement | ReactNode;
     logo?: {
         collapsed?: LogoType;
         default: LogoType;
@@ -279,7 +279,7 @@ declare const Link: React$1.ForwardRefExoticComponent<React$1.AnchorHTMLAttribut
     asChild?: boolean;
 } & React$1.RefAttributes<HTMLAnchorElement>>;
 
-declare const ModeToggle: FC<ModeToggleProps>;
+declare const ModeToggle: () => react_jsx_runtime.JSX.Element;
 
 declare const PageHeader: FC<PageHeaderProps>;
 
@@ -313,7 +313,7 @@ declare const ShowPage: FC<ShowProps> & {
 };
 
 declare const DefaultLayout: {
-    ({ children, defaultLayout, defaultCollapsed, navCollapsedSize, modeToggle, navbar, logo, }: LayoutProps): react_jsx_runtime.JSX.Element;
+    ({ children, defaultLayout, defaultCollapsed, navCollapsedSize, darkMode, themeStorageKey, defaultTheme, navbar, footer, logo, }: LayoutProps): react_jsx_runtime.JSX.Element;
     displayName: string;
 };
 
