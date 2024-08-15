@@ -19,12 +19,19 @@ export const DefaultLayout = ({
     defaultLayout,
     defaultCollapsed = false,
     navCollapsedSize,
-    darkMode,
-    themeStorageKey,
-    defaultTheme,
     navbar,
     footer,
     logo,
+    attribute,
+    defaultTheme,
+    enableSystem,
+    disableTransitionOnChange,
+    enableColorScheme,
+    forcedTheme,
+    nonce,
+    storageKey,
+    themes,
+    value,
 }: LayoutProps) => {
     const { resources } = useResource();
 
@@ -114,8 +121,16 @@ export const DefaultLayout = ({
     return (
         <>
             <ThemeProvider
-                defaultTheme={defaultTheme}
-                storageKey={themeStorageKey}
+                attribute={attribute ?? "class"}
+                defaultTheme={defaultTheme ?? "system"}
+                enableSystem={enableSystem ?? true}
+                disableTransitionOnChange={disableTransitionOnChange ?? false}
+                enableColorScheme={enableColorScheme ?? true}
+                forcedTheme={forcedTheme}
+                nonce={nonce}
+                storageKey={storageKey}
+                themes={themes}
+                value={value}
             >
                 <TooltipProvider delayDuration={0}>
                     <ResizablePanelGroup
@@ -192,11 +207,11 @@ export const DefaultLayout = ({
                                 )}
                                 {navbar?.rightSide ? (
                                     <div className="flex items-center justify-end flex-1">
-                                        {darkMode && <ModeToggle />}
+                                        {<ModeToggle />}
                                         {navbar?.rightSide}
                                     </div>
                                 ) : (
-                                    darkMode && <ModeToggle />
+                                    <ModeToggle />
                                 )}
                             </header>
                             <main className="grow px-6 py-4">{children}</main>

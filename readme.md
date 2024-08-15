@@ -2,7 +2,9 @@
 
 This package is a theme integration for [refine.dev](https://refine.dev) built using [ui.shadcn](ui.shadcn.com).
 
-## [Documentation](../../wiki)
+# Previews
+
+### (Vite Example)[https://refine-admin-vite.vercel.app]
 
 # Sponsors
 

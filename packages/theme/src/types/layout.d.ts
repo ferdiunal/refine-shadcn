@@ -5,7 +5,7 @@ import {
     ReactElement,
     ReactNode,
 } from "react";
-import { Theme } from "./darkMode";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 export type LayoutResource = {
     title: string;
@@ -18,20 +18,19 @@ export type LayoutResource = {
 export type LogoType =
     | ReactElement<React.ComponentProps<"img">>
     | ReactNode<React.ComponentProps<"img">>;
-export type LayoutProps = PropsWithChildren<{
-    defaultLayout: number[] | undefined;
-    defaultCollapsed?: boolean;
-    darkMode?: boolean;
-    defaultTheme: Theme;
-    themeStorageKey: string;
-    footer?: ReactElement | ReactNode;
-    logo?: {
-        collapsed?: LogoType;
-        default: LogoType;
-    };
-    navCollapsedSize: number;
-    navbar?: {
-        leftSide?: ReactElement | ReactNode;
-        rightSide?: ReactElement | ReactNode;
-    };
-}>;
+export type LayoutProps = PropsWithChildren<
+    {
+        defaultLayout: number[] | undefined;
+        defaultCollapsed?: boolean;
+        footer?: ReactElement | ReactNode;
+        logo?: {
+            collapsed?: LogoType;
+            default: LogoType;
+        };
+        navCollapsedSize: number;
+        navbar?: {
+            leftSide?: ReactElement | ReactNode;
+            rightSide?: ReactElement | ReactNode;
+        };
+    } & React.ComponentProps<typeof ThemeProvider>
+>;

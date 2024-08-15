@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "@/providers/theme-provider";
+import { useTheme } from "next-themes";
 import { Button } from "@/ui/button";
 import {
     DropdownMenu,
