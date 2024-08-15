@@ -4,7 +4,7 @@ This package is a theme integration for [refine.dev](https://refine.dev) built u
 
 # Previews
 
-### (Vite Example)[https://refine-admin-vite.vercel.app]
+### [Vite Example](https://refine-admin-vite.vercel.app)
 
 # Sponsors
 
