@@ -1,8 +1,8 @@
 "use client";
-import { IResourceComponentsProps, useOne, useShow } from "@refinedev/core";
-import { ShowPage } from "@ferdiunal/refine-admin";
 import { ICategory, IPost } from "@/app/posts/components/Form";
-const PostShow: React.FC<IResourceComponentsProps> = () => {
+import { ShowPage } from "@ferdiunal/refine-admin";
+import { useOne, useShow } from "@refinedev/core";
+const PostShow = () => {
     const {
         query: { data },
     } = useShow<IPost>();

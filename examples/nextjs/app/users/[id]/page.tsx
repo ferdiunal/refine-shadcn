@@ -1,8 +1,8 @@
 "use client";
 import { ShowPage } from "@ferdiunal/refine-admin";
-import { IResourceComponentsProps, useShow } from "@refinedev/core";
+import { useShow } from "@refinedev/core";
 import { IUser } from "../components/Form";
-const UserShow: React.FC<IResourceComponentsProps> = () => {
+const UserShow = () => {
     const {
         query: { data },
     } = useShow<IUser>();
