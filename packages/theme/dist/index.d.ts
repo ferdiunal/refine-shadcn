@@ -10,6 +10,7 @@ import * as react_jsx_runtime from 'react/jsx-runtime';
 import { FieldValues, FieldPath, UseControllerProps, ControllerRenderProps } from 'react-hook-form';
 import { UseFormReturnType } from '@refinedev/react-hook-form';
 import { SelectProps } from '@radix-ui/react-select';
+import { ThemeProviderProps } from 'next-themes/dist/types';
 import * as _radix_ui_react_checkbox from '@radix-ui/react-checkbox';
 import { PopoverContentProps } from '@radix-ui/react-popover';
 import { UseTableReturnType, UseTableProps } from '@refinedev/react-table';
@@ -185,28 +186,27 @@ type ShowProps = RefineCrudShowProps<
         isDelete?: boolean;
     }>;
 
-type Theme = "dark" | "light" | "system";
+declare function ThemeProvider({ children, ...props }: ThemeProviderProps): react_jsx_runtime.JSX.Element;
 
 type LogoType =
     | ReactElement<React.ComponentProps<"img">>
     | ReactNode<React.ComponentProps<"img">>;
-type LayoutProps = PropsWithChildren<{
-    defaultLayout: number[] | undefined;
-    defaultCollapsed?: boolean;
-    darkMode?: boolean;
-    defaultTheme: Theme;
-    themeStorageKey: string;
-    footer?: ReactElement | ReactNode;
-    logo?: {
-        collapsed?: LogoType;
-        default: LogoType;
-    };
-    navCollapsedSize: number;
-    navbar?: {
-        leftSide?: ReactElement | ReactNode;
-        rightSide?: ReactElement | ReactNode;
-    };
-}>;
+type LayoutProps = PropsWithChildren<
+    {
+        defaultLayout: number[] | undefined;
+        defaultCollapsed?: boolean;
+        footer?: ReactElement | ReactNode;
+        logo?: {
+            collapsed?: LogoType;
+            default: LogoType;
+        };
+        navCollapsedSize: number;
+        navbar?: {
+            leftSide?: ReactElement | ReactNode;
+            rightSide?: ReactElement | ReactNode;
+        };
+    } & React.ComponentProps<typeof ThemeProvider>
+>;
 
 declare const CloneButton: FC<CloneButtonProps>;
 
@@ -313,7 +313,7 @@ declare const ShowPage: FC<ShowProps> & {
 };
 
 declare const DefaultLayout: {
-    ({ children, defaultLayout, defaultCollapsed, navCollapsedSize, darkMode, themeStorageKey, defaultTheme, navbar, footer, logo, }: LayoutProps): react_jsx_runtime.JSX.Element;
+    ({ children, defaultLayout, defaultCollapsed, navCollapsedSize, navbar, footer, logo, attribute, defaultTheme, enableSystem, disableTransitionOnChange, enableColorScheme, forcedTheme, nonce, storageKey, themes, value, }: LayoutProps): react_jsx_runtime.JSX.Element;
     displayName: string;
 };
 
