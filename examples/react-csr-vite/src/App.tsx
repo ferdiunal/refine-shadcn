@@ -147,11 +147,7 @@ function App() {
                         }
                     >
                         <Route index element={<NavigateToResource />} />
-                        <Route
-                            path="/dashboard"
-                            index
-                            element={<Dashboard />}
-                        />
+                        <Route path="/" index element={<Dashboard />} />
                         <Route path="/posts">
                             <Route index element={<PostList />} />
                             <Route path="create" element={<PostCreate />} />

@@ -4,7 +4,7 @@ import type { ResourceProps } from "@refinedev/core";
 export const resources: ResourceProps[] = [
     {
         name: "dashboard",
-        list: "/dashboard",
+        list: "/",
         meta: {
             title: "Dashboard",
             icon: <Home className="h-4 w-4" />,
