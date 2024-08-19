@@ -169,7 +169,7 @@ export const DefaultLayout = ({
                         >
                             <div
                                 className={cn(
-                                    "flex min-h-14 items-center border-b border-border/40 justify-center",
+                                    "flex py-1.5 max-h-14 items-center border-b border-border/40 justify-center",
                                     hasCollapsed && "px-2",
                                 )}
                             >
@@ -196,7 +196,7 @@ export const DefaultLayout = ({
                         >
                             <header
                                 className={cn(
-                                    "sticky top-0 z-50 min-h-14 px-4 flex justify-end items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+                                    "sticky top-0 z-50 py-2 h-14 px-4 flex justify-end items-center border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
                                     navbar?.rightSide && "justify-between",
                                 )}
                             >
@@ -216,7 +216,7 @@ export const DefaultLayout = ({
                             </header>
                             <main className="grow px-6 py-4">{children}</main>
                             {footer && (
-                                <footer className="px-6 min-h-14 border-t border-border/40 sticky bottom-0 bg-background text-primary flex flex-row items-center">
+                                <footer className="px-6 py-4 border-t border-border/40 sticky bottom-0 bg-background text-primary flex flex-row items-center">
                                     <div className="w-full">{footer}</div>
                                 </footer>
                             )}

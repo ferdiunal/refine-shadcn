@@ -1,9 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "build": "npm run build -w @ferdiunal/refine-admin"
+    "build": "npm run build -w @ferdiunal/refine-shadcn"
   },
   "workspaces": [
+    "templates/*",
     "packages/*"
   ]
 }
