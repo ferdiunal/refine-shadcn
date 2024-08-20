@@ -15,9 +15,7 @@ This package is a theme integration for [refine.dev](https://refine.dev) built u
 npm istall @ferdiunal/refine-shadcn
 
 ```
-
 or
-
 ```bash
 
 yarn add @ferdiunal/refine-shadcn
