@@ -64,8 +64,7 @@
         @apply border-border;
     }
     html,
-    body,
-    body > div {
+    body {
         @apply h-dvh;
     }
     body {
