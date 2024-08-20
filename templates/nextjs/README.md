@@ -28,11 +28,11 @@ npx --yes degit ferdiunal/refine-shadcn/templates/nextjs refine-shadcn --force
 **Install Dependencies**:
 
 ```bash
-npm install
+npm ci
 ```
 or
 ```bash
-yarn install
+yarn install --frozen-lockfile
 ```
 **Start the Development Server**:
 ```bash

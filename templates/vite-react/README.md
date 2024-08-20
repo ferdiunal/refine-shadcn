@@ -22,17 +22,17 @@ This project provides a fast and modern Vite-based template for creating [Refine
 **with Degit**:
 
 ```bash
-npx --yes degit ferdiunal/refine-shadcn/templates/react-csr-vite refine-shadcn --force
+npx --yes degit ferdiunal/refine-shadcn/templates/vite-react refine-shadcn --force
 ```
 
 **Install Dependencies**:
 
 ```bash
-npm install
+npm ci
 ```
 or
 ```bash
-yarn install
+yarn install --frozen-lockfile
 ```
 **Start the Development Server**:
 ```bash
