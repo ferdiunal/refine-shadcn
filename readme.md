@@ -5,7 +5,7 @@ This package is a theme integration for [refine.dev](https://refine.dev) built u
 # Previews 💪
 
 ### [Vite Example](https://refine-shadcn-vite.vercel.app)
-### [Nextjs Example](https://refine-shadcn-next.vercel.app)
+### [Nextjs Example](https://refine-shadcn-nextjs.vercel.app)
 
 
 ## Install

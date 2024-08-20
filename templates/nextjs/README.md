@@ -2,7 +2,7 @@
 
 This project provides a fast and modern Next.js-based template for creating [Refine Shadcn](https://github.com/ferdiunal/refine-shadcn) panels. It is configured to help you build comprehensive admin dashboards using the Refine library.
 
-# 💪 [Preview](https://refine-shadcn-next.vercel.app)
+# 💪 [Preview](https://refine-shadcn-nextjs.vercel.app)
 
 ## Features
 
