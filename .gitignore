@@ -43,3 +43,4 @@ packages/**/yarn.lock
 examples/**/.DS_Store
 packages/**/.DS_Store
 .wakatime.cfg
+.idea

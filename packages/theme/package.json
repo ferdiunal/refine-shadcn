@@ -17,9 +17,9 @@
     "LICENSE"
   ],
   "bugs": {
-    "url": "https://github.com/ferdiunal/refine-admin/issues"
+    "url": "https://github.com/ferdiunal/refine-shadcn/issues"
   },
-  "homepage": "https://github.com/ferdiunal/refine-admin#readme",
+  "homepage": "https://github.com/ferdiunal/refine-shadcn#readme",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -97,7 +97,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ferdiunal/refine-admin.git"
+    "url": "https://github.com/ferdiunal/refine-shadcn.git"
   },
   "author": "Ferdi UNAL <ferdiunal@outlook.com>"
 }

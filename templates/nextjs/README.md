@@ -1,8 +1,8 @@
 # Refine Admin Next.js Example
 
-This project provides a fast and modern Next.js-based template for creating [Refine admin](https://github.com/ferdiunal/refine-admin) panels. It is configured to help you build comprehensive admin dashboards using the Refine library.
+This project provides a fast and modern Next.js-based template for creating [Refine Shadcn](https://github.com/ferdiunal/refine-shadcn) panels. It is configured to help you build comprehensive admin dashboards using the Refine library.
 
-# 💪 [Preview](https://refine-admin-next.vercel.app)
+# 💪 [Preview](https://refine-shadcn-next.vercel.app)
 
 ## Features
 
@@ -22,7 +22,7 @@ This project provides a fast and modern Next.js-based template for creating [Ref
 **with Degit**:
 
 ```bash
-npx --yes degit ferdiunal/refine-admin/examples/nextjs refine-admin --force
+npx --yes degit ferdiunal/refine-shadcn/templates/nextjs refine-shadcn --force
 ```
 
 **Install Dependencies**:

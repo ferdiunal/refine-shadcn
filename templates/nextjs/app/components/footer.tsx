@@ -27,19 +27,19 @@ const Footer = () => {
             </div>
             <div className="flex-1 flex-col sm:flex-row items-start justify-start flex sm:justify-end gap-y-1 sm:gap-y-0 gap-x-4">
                 <GitHubButton
-                    href="https://github.com/ferdiunal/refine-admin/tree/main/examples/react-csr-vite"
+                    href="https://github.com/ferdiunal/refine-shadcn/tree/main/examples/react-csr-vite"
                     data-color-scheme="no-preference: light; light: light; dark: dark;"
                     data-size="large"
-                    aria-label="Use this template ferdiunal/refine-admin on GitHub"
+                    aria-label="Use this template ferdiunal/refine-shadcn on GitHub"
                 >
                     Use this example
                 </GitHubButton>
                 <GitHubButton
-                    href="https://github.com/ferdiunal/refine-admin"
+                    href="https://github.com/ferdiunal/refine-shadcn"
                     data-color-scheme="no-preference: light; light: light; dark: dark;"
                     data-size="large"
                     data-show-count="true"
-                    aria-label="Star ferdiunal/refine-admin on GitHub"
+                    aria-label="Star ferdiunal/refine-shadcn on GitHub"
                 >
                     Star
                 </GitHubButton>

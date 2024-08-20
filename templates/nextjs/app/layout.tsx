@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "Next.js example with @ferdiunal/refine-shadcn",
     creator: "Ferdi ÜNAL",
     authors: {
-        url: "https://github.com/ferdiunal/refine-admin",
+        url: "https://github.com/ferdiunal/refine-shadcn",
         name: "Ferdi ÜNAL",
     },
     twitter: {

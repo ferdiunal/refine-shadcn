@@ -1,6 +1,6 @@
-# Refine Admin Vite Template
+# Refine Shadcn Vite Template
 
-This project provides a fast and modern Vite-based template for creating [Refine admin](https://github.com/ferdiunal/refine-admin) panels. It is configured to help you build comprehensive admin dashboards using the Refine library.
+This project provides a fast and modern Vite-based template for creating [Refine Shadcn](https://github.com/ferdiunal/refine-shadcn) panels. It is configured to help you build comprehensive admin dashboards using the Refine library.
 
 ## Features
 
@@ -8,7 +8,7 @@ This project provides a fast and modern Vite-based template for creating [Refine
 - **Refine Integration:** Fully integrated with the Refine library for a robust admin panel experience.
 - **Modern UI:** A modern user interface with pre-configured components.
 
-# 💪 [Preview](https://refine-admin-vite.vercel.app)
+# 💪 [Preview](https://refine-shadcn-vite.vercel.app)
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ This project provides a fast and modern Vite-based template for creating [Refine
 **with Degit**:
 
 ```bash
-npx --yes degit ferdiunal/refine-admin/examples/react-csr-vite refine-admin --force
+npx --yes degit ferdiunal/refine-shadcn/templates/react-csr-vite refine-shadcn --force
 ```
 
 **Install Dependencies**:
