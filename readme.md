@@ -362,6 +362,20 @@ export default UserEdit;
 ```
 </details>
 
+## Screenshots
+
+<img src="https://github.com/ferdiunal/refine-shadcn/blob/main/art/SCR-20240821-ddjg.png?v=1" />
+
+<img src="https://github.com/ferdiunal/refine-shadcn/blob/main/art/SCR-20240821-ddlx.png?v=1" />
+
+<img src="https://github.com/ferdiunal/refine-shadcn/blob/main/art/SCR-20240821-ddns.png?v=1" />
+
+<img src="https://github.com/ferdiunal/refine-shadcn/blob/main/art/SCR-20240821-ddpm.png?v=1" />
+
+<img src="https://github.com/ferdiunal/refine-shadcn/blob/main/art/SCR-20240821-ddrb.png?v=1" />
+
+<img src="https://github.com/ferdiunal/refine-shadcn/blob/main/art/SCR-20240821-dfrd.png?v=1" />
+
 # Sponsors
 
 [<img src="https://avatars.githubusercontent.com/u/104967037?s=200&v=4" width="100">](https://github.com/refinedev)
