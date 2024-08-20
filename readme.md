@@ -24,8 +24,6 @@ yarn add @ferdiunal/refine-shadcn
 
 ## Useage
 
-## Layout Initialize
-
 **For Vite**
 
 [You can use the layout structure prepared for Vite.js from this link](templates/vite-react/src/App.tsx)
