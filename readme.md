@@ -12,7 +12,7 @@ This package is a theme integration for [refine.dev](https://refine.dev) built u
 
 ```bash
 
-npm istall @ferdiunal/refine-shadcn
+npm install @ferdiunal/refine-shadcn
 
 ```
 or
