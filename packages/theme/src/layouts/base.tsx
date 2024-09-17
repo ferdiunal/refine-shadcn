@@ -19,7 +19,7 @@ type Props = PropsWithChildren<
     >
 >;
 
-const BaseLayout = ({
+export const BaseLayout = ({
     attribute,
     defaultTheme,
     enableSystem,
@@ -58,5 +58,3 @@ const BaseLayout = ({
 };
 
 BaseLayout.displayName = "BaseLayout";
-
-export default BaseLayout;

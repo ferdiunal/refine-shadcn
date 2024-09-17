@@ -1,19 +1,16 @@
+import { ModeToggle, Sidebar } from "@/components";
+import { Link } from "@/components/link";
+import { cn } from "@/lib/utils";
+import type { LayoutProps, LogoType } from "@/types";
 import {
     ResizableHandle,
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/ui/resizable";
-import { Toaster } from "@/ui/sonner";
-import { TooltipProvider } from "@/ui/tooltip";
-import { cn } from "@/lib/utils";
-import type { LayoutProps, LogoType } from "@/types";
 import { useMediaQuery } from "@react-hook/media-query";
-import { useMemo, isValidElement, cloneElement, useState } from "react";
-import { Sidebar, ModeToggle } from "@/components";
-import { Link } from "@/components/link";
 import { useResource } from "@refinedev/core";
-import { ThemeProvider } from "@/providers/theme-provider";
-import BaseLayout from "./base";
+import { cloneElement, isValidElement, useMemo, useState } from "react";
+import { BaseLayout } from "./base";
 
 export const DefaultLayout = ({
     children,

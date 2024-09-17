@@ -312,6 +312,12 @@ declare const ShowPage: FC<ShowProps> & {
     Row: typeof Row;
 };
 
+type Props = PropsWithChildren<Pick<LayoutProps, "attribute" | "defaultTheme" | "enableSystem" | "disableTransitionOnChange" | "enableColorScheme" | "forcedTheme" | "nonce" | "storageKey" | "themes" | "value">>;
+declare const BaseLayout: {
+    ({ attribute, defaultTheme, enableSystem, disableTransitionOnChange, enableColorScheme, forcedTheme, nonce, storageKey, themes, value, children, }: Props): react_jsx_runtime.JSX.Element;
+    displayName: string;
+};
+
 declare const DefaultLayout: {
     ({ children, defaultLayout, defaultCollapsed, navCollapsedSize, navbar, footer, logo, attribute, defaultTheme, enableSystem, disableTransitionOnChange, enableColorScheme, forcedTheme, nonce, storageKey, themes, value, }: LayoutProps): react_jsx_runtime.JSX.Element;
     displayName: string;
@@ -439,4 +445,4 @@ declare namespace Table {
     var displayName: string;
 }
 
-export { type BreadcrumbProps, Breadcrumbs, CloneButton, type ColumnProps, Combobox, ConfirmDialog, CreateButton, CreatePage, DefaultLayout, DeleteActionModal, DeleteButton, DeleteContext, type DeleteContextType, DeleteProvider, EditButton, EditPage, ExportButton, Field, type FieldProps, Form, type FormProps, ImportButton, Link, ListButton, ListPage, ModeToggle, PageHeader, RefreshButton, SaveButton, Select, ShowButton, ShowPage, Sidebar, Table, type TableFilterProps, type TableListFilterOption, type TableProps, notificationProvider, useNotificationProvider };
+export { BaseLayout, type BreadcrumbProps, Breadcrumbs, CloneButton, type ColumnProps, Combobox, ConfirmDialog, CreateButton, CreatePage, DefaultLayout, DeleteActionModal, DeleteButton, DeleteContext, type DeleteContextType, DeleteProvider, EditButton, EditPage, ExportButton, Field, type FieldProps, Form, type FormProps, ImportButton, Link, ListButton, ListPage, ModeToggle, PageHeader, RefreshButton, SaveButton, Select, ShowButton, ShowPage, Sidebar, Table, type TableFilterProps, type TableListFilterOption, type TableProps, notificationProvider, useNotificationProvider };
