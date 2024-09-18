@@ -272,6 +272,7 @@ type NativeFormProps = Omit<DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement
 type FormProps<TQueryFnData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TVariables extends FieldValues = FieldValues, TContext extends object = {}, TData extends BaseRecord = TQueryFnData, TResponse extends BaseRecord = TData, TResponseError extends HttpError = TError> = PropsWithChildren & UseFormReturnType<TQueryFnData, TError, TVariables, TContext, TData, TResponse, TResponseError> & {
     formProps?: NativeFormProps;
     isWatchable?: boolean;
+    hideCancel?: boolean;
 };
 declare const Form: <TQueryFnData extends BaseRecord = BaseRecord, TError extends HttpError = HttpError, TVariables extends FieldValues = FieldValues, TContext extends object = {}, TData extends BaseRecord = TQueryFnData, TResponse extends BaseRecord = TData, TResponseError extends HttpError = TError>({ formProps, isWatchable, saveButtonProps, ...props }: FormProps<TQueryFnData, TError, TVariables, TContext, TData, TResponse, TResponseError>) => react_jsx_runtime.JSX.Element;
 
