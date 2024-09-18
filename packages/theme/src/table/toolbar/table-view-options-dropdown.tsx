@@ -11,6 +11,7 @@ import {
     DropdownMenuSeparator,
 } from "@/ui/dropdown-menu";
 import { FC, useMemo } from "react";
+import { useTranslate } from "@refinedev/core";
 
 interface DataTableViewOptionsProps<TData> {
     table: Table<TData>;
@@ -21,6 +22,7 @@ export const DataTableViewOptions = <TData,>({
 }: DataTableViewOptionsProps<TData>): ReturnType<
     FC<DataTableViewOptionsProps<TData>>
 > => {
+    const t = useTranslate();
     const columns = useMemo(() => {
         return table
             .getAllColumns()
@@ -40,11 +42,11 @@ export const DataTableViewOptions = <TData,>({
                     className="ml-auto hidden h-8 lg:flex"
                 >
                     <MixerHorizontalIcon className="mr-2 h-4 w-4" />
-                    View
+                    {t("Columns")}
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[150px]">
-                <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+                <DropdownMenuLabel>{t("Toggle columns")}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {columns.map((column) => {
                     return (
@@ -56,7 +58,8 @@ export const DataTableViewOptions = <TData,>({
                                 column.toggleVisibility(value)
                             }
                         >
-                            {column.id}
+                            {column?.columnDef?.header?.toString() ||
+                                t(column.id)}
                         </DropdownMenuCheckboxItem>
                     );
                 })}

@@ -5,6 +5,7 @@ import { Button } from "@/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/ui/popover";
 import { Input } from "@/ui/input";
 import { Separator } from "@/ui/separator";
+import { useTranslate } from "@refinedev/core";
 
 export function TableFilterSearchColumn({
     column,
@@ -12,6 +13,7 @@ export function TableFilterSearchColumn({
     align = "start",
 }: TableFilterProps) {
     const selectedValue = column?.getFilterValue() as string;
+    const t = useTranslate();
 
     return (
         <Popover>
@@ -86,7 +88,7 @@ export function TableFilterSearchColumn({
                                     }}
                                 >
                                     <FilterX size={16} className="mr-2" />
-                                    Clear
+                                    {t("Clear")}
                                 </Button>
                             </div>
                         </>

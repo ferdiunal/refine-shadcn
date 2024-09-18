@@ -15,6 +15,7 @@ import {
     CommandList,
     CommandSeparator,
 } from "@/ui/command";
+import { useTranslate } from "@refinedev/core";
 
 export function TableFilterDropdown({
     column,
@@ -22,6 +23,7 @@ export function TableFilterDropdown({
     options,
     align = "start",
 }: TableFilterProps) {
+    const t = useTranslate();
     const facets = column?.getFacetedUniqueValues();
     const selectedValues = new Set(column?.getFilterValue() as string[]);
 
@@ -54,7 +56,8 @@ export function TableFilterDropdown({
                                             variant="secondary"
                                             className="rounded-sm p-1 text-xs h-3.5 font-normal"
                                         >
-                                            {selectedValues.size} selected
+                                            {selectedValues.size}{" "}
+                                            {t("selected")}
                                         </Badge>
                                     ) : (
                                         options
@@ -97,7 +100,7 @@ export function TableFilterDropdown({
                 <Command>
                     <CommandInput placeholder={title} />
                     <CommandList>
-                        <CommandEmpty>No results found.</CommandEmpty>
+                        <CommandEmpty>{t("No results found")}.</CommandEmpty>
                         <CommandGroup>
                             {options?.map((option) => {
                                 const isSelected = selectedValues.has(
@@ -160,7 +163,7 @@ export function TableFilterDropdown({
                                         }
                                         className="justify-center text-center"
                                     >
-                                        Clear filters
+                                        {t("Clear filters")}
                                     </CommandItem>
                                 </CommandGroup>
                             </>

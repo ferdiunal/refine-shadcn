@@ -6,7 +6,7 @@ import {
 } from "@radix-ui/react-icons";
 import { UseTableReturnType as Table } from "@refinedev/react-table";
 
-import { BaseRecord } from "@refinedev/core";
+import { BaseRecord, useTranslate } from "@refinedev/core";
 import {
     Select,
     SelectContent,
@@ -24,6 +24,7 @@ interface DataTablePaginationProps<TData extends BaseRecord = BaseRecord> {
 export const Pagination = <TData extends BaseRecord = BaseRecord>({
     table,
 }: DataTablePaginationProps<TData>) => {
+    const t = useTranslate();
     return (
         <div className="flex flex-col sm:flex-row gap-y-4 sm-gap-y-0 items-center justify-between">
             <div className="flex-1 text-sm text-muted-foreground">
@@ -78,7 +79,9 @@ export const Pagination = <TData extends BaseRecord = BaseRecord>({
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                     >
-                        <span className="sr-only">Go to previous page</span>
+                        <span className="sr-only">
+                            {t("Go to previous page")}
+                        </span>
                         <ChevronLeftIcon className="h-4 w-4" />
                     </Button>
                     <Button
@@ -87,7 +90,7 @@ export const Pagination = <TData extends BaseRecord = BaseRecord>({
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                     >
-                        <span className="sr-only">Go to next page</span>
+                        <span className="sr-only">{t("Go to next page")}</span>
                         <ChevronRightIcon className="h-4 w-4" />
                     </Button>
                     <Button
@@ -98,7 +101,7 @@ export const Pagination = <TData extends BaseRecord = BaseRecord>({
                         }
                         disabled={!table.getCanNextPage()}
                     >
-                        <span className="sr-only">Go to last page</span>
+                        <span className="sr-only">{t("Go to last page")}</span>
                         <DoubleArrowRightIcon className="h-4 w-4" />
                     </Button>
                 </div>

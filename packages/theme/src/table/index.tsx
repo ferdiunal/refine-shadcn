@@ -8,7 +8,12 @@ import {
     Table as TableUi,
 } from "@/ui/table";
 import { PopoverContentProps } from "@radix-ui/react-popover";
-import { BaseOption, BaseRecord, HttpError } from "@refinedev/core";
+import {
+    BaseOption,
+    BaseRecord,
+    HttpError,
+    useTranslate,
+} from "@refinedev/core";
 import {
     UseTableProps,
     UseTableReturnType,
@@ -99,6 +104,7 @@ export function Table<
     columns = [],
     ...props
 }: TableProps<TData, TError>) {
+    const t = useTranslate();
     const mapColumn = useCallback(
         ({
             id,
@@ -248,7 +254,7 @@ export function Table<
                                         colSpan={columns.length}
                                         className="h-24 text-center"
                                     >
-                                        No results.
+                                        {t("No results")}.
                                     </TableCell>
                                 </TableRow>
                             )}

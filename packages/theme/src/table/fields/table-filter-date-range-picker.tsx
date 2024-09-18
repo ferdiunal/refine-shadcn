@@ -10,7 +10,7 @@ import { Button } from "@/ui/button";
 import { Separator } from "@/ui/separator";
 import { Badge } from "@/ui/badge";
 import { Calendar } from "@/ui/calendar";
-import { BaseRecord } from "@refinedev/core";
+import { BaseRecord, useTranslate } from "@refinedev/core";
 
 export function TableFilterDateRangePickerFilter<
     T extends BaseRecord = BaseRecord,
@@ -20,6 +20,7 @@ export function TableFilterDateRangePickerFilter<
     numberOfMonths = 2,
     align = "start",
 }: Pick<TableFilterProps<T>, "column" | "title" | "numberOfMonths" | "align">) {
+    const t = useTranslate();
     const [date, setDate] = useState<DateRange | undefined>({
         from: undefined,
         to: undefined,
@@ -113,7 +114,7 @@ export function TableFilterDateRangePickerFilter<
                                 }}
                             >
                                 <FilterX size={16} className="mr-2" />
-                                Clear
+                                {t("Clear")}
                             </Button>
                         </div>
                     </>

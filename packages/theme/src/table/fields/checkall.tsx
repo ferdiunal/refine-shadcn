@@ -10,7 +10,7 @@ import {
     DropdownMenuTrigger,
 } from "@/ui/dropdown-menu";
 
-import { BaseRecord, HttpError } from "@refinedev/core";
+import { BaseRecord, HttpError, useTranslate } from "@refinedev/core";
 import { UseTableReturnType } from "@refinedev/react-table";
 
 import { FC, forwardRef, PropsWithChildren } from "react";
@@ -28,6 +28,7 @@ export const CheckAll: FC<CheckAllProps> = forwardRef<
     React.ElementRef<typeof Checkbox>,
     CheckAllProps
 >(({ table, children, options }, ref) => {
+    const t = useTranslate();
     return (
         <>
             <Checkbox
@@ -41,7 +42,7 @@ export const CheckAll: FC<CheckAllProps> = forwardRef<
                     table.toggleAllPageRowsSelected(!!value)
                 }
                 className="translate-y-[2px]"
-                aria-label="Select all"
+                aria-label={t("Select all")}
             />
             {children ||
                 (Array.isArray(options) && options.length && (
@@ -62,7 +63,9 @@ export const CheckAll: FC<CheckAllProps> = forwardRef<
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="start">
-                            <DropdownMenuLabel>Bulk Actions</DropdownMenuLabel>
+                            <DropdownMenuLabel>
+                                {t("Bulk Actions")}
+                            </DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             {!children &&
                             Array.isArray(options) &&
