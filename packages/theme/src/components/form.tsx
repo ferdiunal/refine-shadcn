@@ -46,6 +46,7 @@ export type FormProps<
     > & {
         formProps?: NativeFormProps;
         isWatchable?: boolean;
+        hideCancel?: boolean;
     };
 
 export const Form = <
@@ -101,14 +102,16 @@ export const Form = <
                     </CardContent>
 
                     <CardFooter className="flex justify-end gap-x-4">
-                        <Button
-                            type="button"
-                            onClick={onBack}
-                            disabled={props.refineCore.formLoading}
-                            variant="outline"
-                        >
-                            Cancel
-                        </Button>
+                        {!props.hideCancel && (
+                            <Button
+                                type="button"
+                                onClick={onBack}
+                                disabled={props.refineCore.formLoading}
+                                variant="outline"
+                            >
+                                Cancel
+                            </Button>
+                        )}
 
                         <SaveButton
                             type="submit"
