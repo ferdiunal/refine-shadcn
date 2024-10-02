@@ -168,9 +168,6 @@ type ListProps = Omit<
         createButtonProps: CreateButtonProps;
         extra: React.ReactNode;
         className: string;
-        isCreate?: boolean;
-        isEdit?: boolean;
-        isDelete?: boolean;
     }>;
 
 type ShowProps = RefineCrudShowProps<
@@ -182,8 +179,6 @@ type ShowProps = RefineCrudShowProps<
 > &
     Partial<{
         extra: React.ReactNode;
-        isEdit?: boolean;
-        isDelete?: boolean;
     }>;
 
 declare function ThemeProvider({ children, ...props }: ThemeProviderProps): react_jsx_runtime.JSX.Element;
