@@ -16,6 +16,7 @@ export const EditPage: FC<EditProps> = ({
     resource,
     extra,
     breadcrumb: breadcrumbFromProps,
+    canDelete = true,
     children,
 }) => {
     const translate = useTranslate();
@@ -53,12 +54,14 @@ export const EditPage: FC<EditProps> = ({
                     extra ?? (
                         <div className="inline-flex flex-row items-center gap-x-2">
                             <ShowButton resource={resource} />
-                            <DeleteButton
-                                resource={resource}
-                                onSuccess={() => {
-                                    list(_resource?.name as string);
-                                }}
-                            />
+                            {canDelete && (
+                                <DeleteButton
+                                    resource={resource}
+                                    onSuccess={() => {
+                                        list(_resource?.name as string);
+                                    }}
+                                />
+                            )}
                         </div>
                     )
                 }

@@ -17,8 +17,8 @@ export const ShowPage: FC<ShowProps> & {
     title,
     resource: resourceFromProps,
     breadcrumb: breadcrumbFromProps,
-    isEdit = true,
-    isDelete = true,
+    canDelete = true,
+    canEdit = true,
     extra,
     children,
 }) => {
@@ -57,10 +57,10 @@ export const ShowPage: FC<ShowProps> & {
                 extra={
                     extra ?? (
                         <div className="inline-flex items-center gap-x-2">
-                            {isEdit && (
+                            {canEdit && (
                                 <EditButton resource={resourceFromProps} />
                             )}
-                            {isDelete && (
+                            {canDelete && (
                                 <DeleteButton
                                     resource={resourceFromProps}
                                     onSuccess={() => {

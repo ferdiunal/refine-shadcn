@@ -48,9 +48,6 @@ export type ListProps = Omit<
         createButtonProps: CreateButtonProps;
         extra: React.ReactNode;
         className: string;
-        isCreate?: boolean;
-        isEdit?: boolean;
-        isDelete?: boolean;
     }>;
 
 export type ShowProps = RefineCrudShowProps<
@@ -62,6 +59,4 @@ export type ShowProps = RefineCrudShowProps<
 > &
     Partial<{
         extra: React.ReactNode;
-        isEdit?: boolean;
-        isDelete?: boolean;
     }>;

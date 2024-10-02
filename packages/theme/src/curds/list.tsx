@@ -18,7 +18,7 @@ export const ListPage: FC<ListProps> = ({
     breadcrumb: breadcrumbFromProps,
     createButtonProps,
     className,
-    isCreate = true,
+    canCreate = true,
     extra,
     children,
 }) => {
@@ -55,7 +55,7 @@ export const ListPage: FC<ListProps> = ({
                     extra ?? (
                         <>
                             <div className="inline-flex flex-row gap-4">
-                                {isCreate && (
+                                {canCreate && (
                                     <CreateButton
                                         {...createButtonProps}
                                         resource={
