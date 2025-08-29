@@ -120,6 +120,9 @@
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.mjs",
       "require": "./dist/lib/utils.js"
+    },
+    "./dist/globals.css": {
+      "import": "./dist/globals.css"
     }
   }
 }
